@@ -6,7 +6,7 @@
  */
 
 // ===== CONFIG =====
-const FOLDER_ID = 'PASTE_YOUR_DRIVE_FOLDER_ID_HERE'; // Drive folder for resumes + the leads Sheet
+const FOLDER_ID = '1Ayuz3w5jmbDn-zexj1Oe_eZhkwtIlPRd'; // Drive folder for resumes + the leads Sheet
 const NOTIFY_EMAIL = '';   // optional: gets a short email per submission
 const MAX_MB = 10;
 // ==================

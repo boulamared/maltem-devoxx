@@ -5,13 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Maltem at Devoxx Morocco</title>
 <meta name="description" content="Meet Maltem Africa at Devoxx Morocco: share your resume or request a meeting with our team.">
-<meta name="theme-color" content="#E2001A">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Crect width=%2764%27 height=%2764%27 rx=%2714%27 fill=%27%23E2001A%27/%3E%3Ctext x=%2732%27 y=%2744%27 font-family=%27Arial%27 font-weight=%27700%27 font-size=%2734%27 fill=%27white%27 text-anchor=%27middle%27%3EM%3C/text%3E%3C/svg%3E">
+<meta name="theme-color" content="#EA4135">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Crect width=%2764%27 height=%2764%27 rx=%2714%27 fill=%27%23EA4135%27/%3E%3Ctext x=%2732%27 y=%2744%27 font-family=%27Arial%27 font-weight=%27700%27 font-size=%2734%27 fill=%27white%27 text-anchor=%27middle%27%3EM%3C/text%3E%3C/svg%3E">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@500;700;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap">
 <style>
 :root{
   --bg:#F6F4F4; --surface:#FFFFFF; --ink:#1D1D1F; --muted:#5E5A5A; --line:#E3DEDE;
-  --brand:#E2001A; --on-brand:#FFFFFF; --ok:#1E7F4F;
+  --brand:#EA4135; --on-brand:#FFFFFF; --ok:#1E7F4F;
   --display:"Sora",system-ui,sans-serif; --body:"IBM Plex Sans",system-ui,sans-serif; --mono:"IBM Plex Mono",ui-monospace,monospace;
 }
 @media (prefers-color-scheme:dark){:root{
@@ -23,9 +23,11 @@ body{background:var(--bg);color:var(--ink);font:16px/1.55 var(--body);padding:0 
 [hidden]{display:none!important}
 .hero{background:var(--brand);color:var(--on-brand);border-radius:20px;padding:24px 22px 26px;position:relative;overflow:hidden}
 .hero::after{content:"";position:absolute;right:-60px;top:-60px;width:200px;height:200px;border-radius:50%;border:28px solid #fff;opacity:.18}
-.brand{font:800 22px/1 var(--display);letter-spacing:.02em;position:relative}
-.brand small{display:block;font:500 11px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;opacity:.8;margin-top:6px}
-.tag{display:inline-block;margin-top:28px;font:500 12px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;background:#fff;color:#E2001A;padding:6px 10px;border-radius:999px}
+.brand{position:relative}
+.logo{display:inline-block;background:#fff;border-radius:12px;padding:10px 14px;line-height:0}
+.logo img{display:block;height:auto}
+.brand small{display:block;font:500 11px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;opacity:.8;margin-top:10px}
+.tag{display:inline-block;margin-top:28px;font:500 12px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;background:#fff;color:#EA4135;padding:6px 10px;border-radius:999px}
 h1{font:700 clamp(27px,7vw,38px)/1.12 var(--display);margin:12px 0 10px;text-wrap:balance;position:relative}
 .hero p{margin:0;opacity:.9;max-width:40ch}
 .door{display:flex;flex-direction:column;gap:6px;text-align:left;width:100%;font:inherit;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:20px;cursor:pointer;transition:transform .15s,border-color .15s}
@@ -69,7 +71,7 @@ textarea{min-height:96px;resize:vertical}
   <!-- HOME -->
   <section id="v-home" class="wrap" style="padding:0">
     <div class="hero">
-      <div class="brand">MALTEM<small>Africa · Casablanca</small></div>
+      <div class="brand"><span class="logo"><img src="logo.png" alt="Maltem" width="150" height="33"></span><small>Africa · Casablanca</small></div>
       <span class="tag">Devoxx Morocco · 4–5 Nov 2026</span>
       <h1>Glad you stopped by our booth.</h1>
       <p>We build digital, data and AI solutions for companies across Morocco and Africa. Pick what brings you here.</p>
@@ -97,7 +99,7 @@ textarea{min-height:96px;resize:vertical}
     <label for="cv-name">Full name<input id="cv-name" name="name" autocomplete="name" required></label>
     <div class="row">
       <label for="cv-email">Email<input id="cv-email" name="email" type="email" autocomplete="email" required></label>
-      <label for="cv-phone">Phone <span class="opt">(optional)</span><input id="cv-phone" name="phone" type="tel" autocomplete="tel"></label>
+      <label for="cv-phone"><span>Phone <span class="opt">(optional)</span></span><input id="cv-phone" name="phone" type="tel" autocomplete="tel"></label>
     </div>
     <div class="row">
       <label for="cv-profile">Profile
@@ -111,7 +113,7 @@ textarea{min-height:96px;resize:vertical}
           <option>6–10 years</option><option>10+ years</option>
         </select></label>
     </div>
-    <label for="cv-linkedin">LinkedIn <span class="opt">(optional)</span><input id="cv-linkedin" name="linkedin" type="url" placeholder="linkedin.com/in/…"></label>
+    <label for="cv-linkedin"><span>LinkedIn <span class="opt">(optional)</span></span><input id="cv-linkedin" name="linkedin" type="url" placeholder="linkedin.com/in/…"></label>
     <label class="file" id="cv-drop" for="cv-file">
       <span id="cv-file-label">Tap to attach your resume · PDF, Word or photo · max 10 MB</span>
       <input id="cv-file" type="file" accept=".pdf,.doc,.docx,image/jpeg,image/png">
@@ -134,14 +136,14 @@ textarea{min-height:96px;resize:vertical}
     </div>
     <div class="row">
       <label for="b-email">Email<input id="b-email" name="email" type="email" autocomplete="email" required></label>
-      <label for="b-phone">Phone <span class="opt">(optional)</span><input id="b-phone" name="phone" type="tel" autocomplete="tel"></label>
+      <label for="b-phone"><span>Phone <span class="opt">(optional)</span></span><input id="b-phone" name="phone" type="tel" autocomplete="tel"></label>
     </div>
     <label for="b-topic">Topic
       <select id="b-topic" name="topic">
         <option>AI / GenAI project</option><option>Digital transformation</option><option>Staffing / team extension</option>
         <option>Partnership</option><option>Other</option>
       </select></label>
-    <label for="b-msg">Message <span class="opt">(optional)</span><textarea id="b-msg" name="message" placeholder="A few words on your context"></textarea></label>
+    <label for="b-msg"><span>Message <span class="opt">(optional)</span></span><textarea id="b-msg" name="message" placeholder="A few words on your context"></textarea></label>
     <label class="consent" for="b-consent"><input id="b-consent" name="consent" type="checkbox">I agree that Maltem Africa uses these details to contact me about my request, in line with Moroccan law 09-08.</label>
     <div class="hp" aria-hidden="true"><label for="b-web">Website<input id="b-web" name="website" tabindex="-1" autocomplete="off"></label></div>
     <p class="err" id="b-err" hidden></p>
@@ -158,7 +160,7 @@ textarea{min-height:96px;resize:vertical}
 
   <!-- BOOTH SCREEN: open the page with ?view=booth -->
   <section id="v-booth" class="wrap booth" hidden>
-    <div class="brand" style="color:var(--brand)">MALTEM<small style="color:var(--muted)">Africa</small></div>
+    <div class="brand"><span class="logo"><img src="logo.png" alt="Maltem" width="200" height="44"></span><small style="color:var(--muted)">Africa</small></div>
     <h1>Scan to join us<br>or meet our team</h1>
     <div class="qrbox"><div id="qr"></div></div>
   </section>

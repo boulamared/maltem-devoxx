@@ -23,7 +23,26 @@ Phone ──scan──▶ GitHub Pages (web/)  ──POST JSON──▶  Google 
 | `.github/workflows/apps-script.yml` | Optional: pushes the backend to Google with clasp. |
 | `scripts/qr.mjs` | Generates the printable QR code. |
 
-## Deploy (about 15 minutes)
+## Alternative backend: your own VPS
+
+`server/` is a drop-in replacement for the Apps Script: same JSON API, but it runs in Docker on your server and talks to Drive and Sheets through the Google APIs. Use either one, not both.
+
+1. **DNS:** point a domain, e.g. `api.example.com`, at the VPS (A record). Open ports 80 and 443.
+2. **Google OAuth client:** in <https://console.cloud.google.com> create a project, enable the **Google Drive API** and **Google Sheets API**, configure the OAuth consent screen (add yourself as a test user), then **Credentials → Create OAuth client ID → Desktop app**.
+3. **Refresh token** (run on your laptop, signed in as the Google account that owns the Drive folder):
+   ```bash
+   cd server && npm install && npm run token -- <client_id> <client_secret>
+   ```
+   Open the printed URL, accept, and copy the `GOOGLE_REFRESH_TOKEN=…` line. While the consent screen is in "Testing" the token expires after 7 days: publish the app (Production) to make it permanent. An unverified app shows a warning screen, which is fine for your own account.
+4. **On the VPS:**
+   ```bash
+   cd server && cp .env.example .env   # fill in every value
+   docker compose up -d --build
+   ```
+   Open `https://api.example.com/`: it should show `{"ok":true,…}`. The leads Sheet is created in your Drive folder on first start.
+5. **Connect the page:** set `API_URL: "https://api.example.com/"` in [`web/config.js`](web/config.js) and `ALLOWED_ORIGIN` in `.env` to your Pages origin.
+
+## Deploy with Apps Script (about 15 minutes)
 
 ### 1. Drive folder
 
@@ -104,4 +123,4 @@ Forms only send once `API_URL` is set.
 - A hidden honeypot field drops most bot submissions.
 - Values that look like spreadsheet formulas are stored as plain text.
 - Both forms ask for consent under Moroccan law 09-08. Check with HR that the CNDP declaration covers event recruiting.
-- The brand red (`--brand` in `web/index.html`) approximates the Maltem logo color. Replace it with the official hex code if you have it.
+- The logo is `web/logo.png` (200×44), and `--brand` in `web/index.html` is `#EA4135`, sampled from it. For sharper print and tablet display, swap in an SVG and update the two `<img>` tags.
