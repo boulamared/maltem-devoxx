@@ -1,0 +1,19 @@
+{
+  "name": "maltem-devoxx-booth",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Maltem Africa booth page for Devoxx Morocco 2026: resume upload to Google Drive and partner meeting requests.",
+  "type": "module",
+  "scripts": {
+    "dev": "npx --yes serve web -l 5173",
+    "clasp:login": "clasp login",
+    "clasp:create": "clasp create --type webapp --title \"Maltem Devoxx Booth API\" --rootDir apps-script",
+    "clasp:push": "clasp push -f",
+    "clasp:deploy": "clasp push -f && clasp deploy --description \"Devoxx booth\"",
+    "qr": "node scripts/qr.mjs"
+  },
+  "devDependencies": {
+    "@google/clasp": "2.4.2",
+    "qrcode": "1.5.4"
+  }
+}
