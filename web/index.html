@@ -36,6 +36,11 @@ h1{font:700 clamp(27px,7vw,38px)/1.12 var(--display);margin:12px 0 10px;text-wra
 .k{font:500 11px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
 .door h2,.panel h2{font:700 21px/1.2 var(--display);margin:2px 0 0}
 .door p{margin:0;color:var(--muted);font-size:15px}
+.links{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media (max-width:420px){.links{grid-template-columns:1fr}}
+.links a{display:flex;flex-direction:column;gap:6px;color:var(--ink);text-decoration:none;font-weight:600;font-size:15px;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:16px 18px;transition:border-color .15s}
+.links a:hover,.links a:focus-visible{border-color:var(--brand);outline:none}
+.links a:focus-visible{box-shadow:0 0 0 3px var(--brand)}
 .go{margin-top:10px;align-self:flex-start;font-weight:600;padding:11px 16px;border-radius:10px;background:var(--brand);color:#fff}
 .door.dark .go{background:var(--ink);color:var(--bg)}
 .panel{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:20px;display:flex;flex-direction:column;gap:14px}
@@ -88,6 +93,10 @@ textarea{min-height:96px;resize:vertical}
       <p>A project, an AI use case, a partnership? Leave your details and our team will reach out within 48 hours.</p>
       <span class="go">Request a meeting →</span>
     </button>
+    <nav class="links" aria-label="Maltem Africa online">
+      <a href="https://africa.maltem.com/en/" target="_blank" rel="noopener"><span class="k">Website</span>africa.maltem.com ↗</a>
+      <a href="https://www.linkedin.com/company/maltem-africa/" target="_blank" rel="noopener"><span class="k">LinkedIn</span>Follow Maltem Africa ↗</a>
+    </nav>
     <p class="foot">Maltem Africa · part of the Maltem group</p>
   </section>
 
